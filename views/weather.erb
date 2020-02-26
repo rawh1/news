@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Google Fonts -->
+    <!-- Swapped out Roboto for Noto Sans -->
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css" crossorigin="anonymous">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    
+    <!-- Your own CSS -->
+    <link rel="stylesheet" href="/styles.css">
+
+    <title>News and Weather Update</title>
+</head>
+	
+	<body>
+		<!-- Navbar -->
+    <nav class="navbar navbar-dark bg-dark navbar-fixed-top">
+        <a class="navbar-brand" href="/">Update Location</a>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+          </div>
+        </div>
+      </nav>
+
+
+	<!-- Weather for user-inputted location -->
+    <div class="container mt-5">
+      <h1>Current weather in <%= @Location %></h1>
+      <h4> In <%= @Location %>, it is currently <%= @current_temp %> degrees and <%= @current_summary %></h4>
+			<h2 class="mt-3">Extended forecast for <%= @Location %></h2>
+			<table class = "table table-bordered mt-3">
+				<thead class="thead-color">
+					<tr>
+						<th scope="col">Day</th>
+						<th scope="col">Daily summary</th>
+						<th scope="col">High temp</th>
+						<th scope="col">Low temp</th>
+					</tr>
+				</thead>	
+				<tbody>
+					<tr>
+						<td>Today</td>
+						<td><%= @daily_summary[0] %></td>
+						<td><%= @daily_high[0] %> degrees</td>
+						<td><%= @daily_low[0] %> degrees</td>
+					</tr>
+					<tr>
+						<td>Tomorrow</td>
+						<td><%= @daily_summary[1] %></td>
+						<td><%= @daily_high[1] %> degrees</td>
+						<td><%= @daily_low[1] %> degrees</td>
+					</tr>
+					<tr>
+						<td>Day after tomorrow</td>
+						<td><%= @daily_summary[2] %></td>
+						<td><%= @daily_high[2] %> degrees</td>
+						<td><%= @daily_low[2] %> degrees</td>
+					</tr>
+				</tbody>
+      </table>
+		</div>
+		
+    <div class="container mt-5">
+        <h1>News Headlines</h1>
+            <div class="col">
+                <% for article in @news["articles"] %>
+                <a href="<%= article["url"] %>"></a>
+                        </div>
+                        <div class="col-10">
+                        <ul>
+                            <li> <a href="<%= article["url"] %>"><%= article["title"] %></a></br></li>
+                        </ul>
+                                <div class="d-none d-md-block">
+                        </div>
+                <% end %>
+            </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  </body>
+</html>
