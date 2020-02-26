@@ -1,0 +1,15 @@
+h1 {
+    color: rgb(14, 14, 160);
+    font-size: 200%;
+    font-family:"helvetica";
+    font-style:italic
+}
+
+h2 {
+    font-size: 150%;
+    font-family:"helvetica";
+}
+
+body{
+    font-family: "geordia";
+}
